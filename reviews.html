@@ -1,0 +1,17 @@
+{% extends "book/base.html" %} 
+{% block content %} 
+
+    <p>Reviews</p>
+
+    <ul>
+        {% for review in reviews %}
+            <li>
+                <a href ="{% url 'book:review' review.id %}">{{review}}</a>
+            </li>
+
+        {% empty %} 
+            <li> No reviews habe been added yet.</li>
+        {% endfor %} 
+    </ul>
+    <a href="{% url 'book:new_review' %}" >Add a new review</a>
+{% endblock content %}
